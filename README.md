@@ -1,6 +1,6 @@
 # margarita_mile_atx
 ![Screen Shot 2022-06-04 at 1 22 26 PM](https://user-images.githubusercontent.com/101522627/172067359-8c21da00-87ce-4711-b09e-b7a88bbecee3.png)
-###### Margarita "Mile" is a application where useres can share their own personalized 'Margarita Mile'. The application includes maps, restuarant, picutres, and reccommended "Margarita".
+###### Margarita "Mile" is an application where users can share their own personalized 'Margarita Mile'. The application includes maps, restuarant, pictures, and recommend Margarita's.
 
 
 
