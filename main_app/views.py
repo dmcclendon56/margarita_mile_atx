@@ -58,17 +58,19 @@ class RestaurantDelete(DeleteView):
 class RestaurantUpdate(UpdateView):
     model = restaurant
     fields = ['name', 'img', 'margarita', 'cost']
-    template_name = "restaurant_update.html"
-    # success_url = "/doglist/"   
+    template_name = "restaurant_update.html"  
     
 
     def get_success_url(self):
         return reverse('restaurant_detail', kwargs={'pk': self.object.pk})    
 
 
+
+
+
 # class MilesList(TemplateView):
-#     def __init__(self, restuarant, image, margarita, price):
-#         self.restuarant = restuarant
+#     def __init__(self, restaurant, image, margarita, price):
+#         self.restaurant = restaurant
 #         self.image = image
 #         self.margarita = margarita
 #         self.price = price
