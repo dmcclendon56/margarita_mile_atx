@@ -8,13 +8,13 @@ class Miles(models.Model):
     def __str__(self):
         return self.title  
 
-class restaurant (models.Model):
+class Restaurant (models.Model):
 
     name = models.CharField(max_length=100)
     img = models.CharField(max_length=250)
     margarita = models.TextField(max_length=500)
     price = models.IntegerField(default=0)
-    restaurant = models.ForeignKey(Miles, on_delete=models.CASCADE, related_name="restaurant")
+    miles = models.ForeignKey(Miles, null = True, blank = True, on_delete=models.CASCADE, related_name="miles")
     
     def __str__(self):
         return self.name
