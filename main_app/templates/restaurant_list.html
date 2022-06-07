@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% block content %}
+
+{% comment %} for head title tags and helping us with SEO {% endcomment %}
+{% block title %}Restaurant{% endblock  %}
+
+
+<h1 class="title">{{header}}</h1>
+
+<h1 class="title pt-5">{{header}}</h1>
+<form class="mb-5" method="get">
+  <div class="field has-addons">
+    <div class="control">
+      
+      </div>
+  <!--  This anchor tag will redirect back to artist list without a query param -->
+ 
+</form>
+<div class="gallery">
+  {% for restaurant in restaurants %}
+  <a href="{% url 'restaurant_detail' restaurant.pk %}">
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-square">
+          <img src="{{restaurant.img}}" alt="{{restaurant.name}}" />
+        </figure>
+      </div>
+      <div class="card-header">
+        <p class="card-header-title">{{restaurant.name}}</p>
+      </div>
+    </div>
+  </a>
+	{% empty %}
+  <article class="message">
+    <div class="message-header">
+      <p>No Restaurant available</p>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% endblock %}
+
