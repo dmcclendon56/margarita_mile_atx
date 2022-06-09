@@ -1,9 +1,0 @@
-{% extends 'base.html' %}
-{% block content %}
-    {% endif %}
-    <h1> {{restaurant.name}}</h1>
-    <img src="{{restaurant.img}}" alt="{{restaurant.name}}" />
-    <a href="/restaurantlist/{{restaurant.name}}/update">Edit this Restaurant</a>
-    <a href="/restaurantlist/{{restaurant.name}}/delete">Delete the Restaurant</a>
-    <h4>{{restaurant.margarita}}</h4>
-{% endblock %}

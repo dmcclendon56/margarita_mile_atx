@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1> {{restaurant.name}}</h1>
+    <img src="{{restaurant.img}}" alt="{{restaurant.name}}" />
+    <a href="/milelist/{{restaurant.name}}/update">Edit this Restaurant</a>
+    <a href="/milelist/{{restaurant.name}}/delete">Delete the Restaurant</a>
+    <h4>{{restaurant.margarita}}</h4>
+{% endblock %}
+<a href="{% url 'mile_detail' mile.pk %}" method="post">
+    {%csrf_token %}
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-square">
+          <img src="{{restaurant.img}}" alt="{{restaurant.name}}" />
+        </figure>
+      </div>
+      <div class="card-header">
+        <p class="card-header-title">{{restaurant.name}}</p>
+      </div>
+    </div>
+  </a>
+</div>

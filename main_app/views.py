@@ -6,7 +6,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
-from main_app.models import Restaurant
+from main_app.models import Restaurant, Miles, Default
 
 from django.urls import reverse
 
@@ -15,6 +15,9 @@ from django.urls import reverse
 class Home(View):
     def get(self, request):
         return HttpResponse("Margartia Mile Home")
+
+    
+
 
 
 class About(View):
@@ -25,55 +28,78 @@ class About(View):
 class Home(TemplateView):
     template_name = "home.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["miles"] = Miles.objects.all() 
+        context['default_miles']= Default.objects.all()
+        return context
+
 
 
 class About(TemplateView):
     template_name = "about.html"
 
 
-class RestaurantList(TemplateView):
-    template_name = "restaurant_list.html"
+class MileList(TemplateView):
+    template_name = "mile_list.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["restaurant"] = Restaurant.objects.all() 
+        context["miles"] = Miles.objects.all() 
         return context
 
-class RestaurantDetail(DetailView):
-    model = Restaurant
-    template_name = "restaurant_detail.html"   
+class MileDetail(DetailView):
+    model = Miles
+    template_name = "mile_detail.html"   
 
-class RestaurantCreate(CreateView):
-    model = Restaurant
-    fields = ['name', 'img', 'margarita', 'price']
-    template_name = "restaurant_create.html"
-    success_url = "/restaurantlist/" 
+class MileCreate(CreateView):
+    model = Miles
+    fields = ['title', 'img']
+    template_name = "mile_create.html"
+    success_url = "/milelist/" 
 
 
-class RestaurantDelete(DeleteView):
-    model = Restaurant
-    template_name = "restaurant_delete_confirm.html"
-    success_url = "/restaurantlist/"
+class MileDelete(DeleteView):
+    model = Miles
+    template_name = "mile_delete_.html"
+    success_url = "/milelist/"
 
-class RestaurantUpdate(UpdateView):
-    model = Restaurant
-    fields = ['name', 'img', 'margarita', 'cost']
-    template_name = "restaurant_update.html"  
+class MileUpdate(UpdateView):
+    model = Miles
+    fields = ['name', 'img']
+    template_name = "mile_update.html"  
     
 
     def get_success_url(self):
         return reverse('restaurant_detail', kwargs={'pk': self.object.pk})    
 
 
+# class RestuarantList(TemplateView):
+#     template_name = "mile_list.html"
 
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context["miles"] = Miles.objects.all() 
+#         return context
+class RestaurantCreate(CreateView):
+    model = Restaurant
+    fields = ['restaurant', 'img', 'margarita', 'price', 'miles' ]
+    template_name = "restaurabt_create.html"
+    success_url = "/restaurantlist/" 
 
+class NorthMile(DetailView):
+    def get(self, request):
+        return HttpResponse("Margarita Mile-North")
+    
 
-# class MilesList(TemplateView):
-#     def __init__(self, restaurant, image, margarita, price):
-#         self.restaurant = restaurant
-#         self.image = image
-#         self.margarita = margarita
-#         self.price = price
+class CentralMile(DetailView):
+    def get(self, request):
+        return HttpResponse("Margarita Mile-Central")
+
+class SouthMile(DetailView):
+    def get(self, request):
+        return HttpResponse("Margarita Mile-South")        
+
 
 
       
