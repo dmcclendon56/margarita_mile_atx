@@ -21,10 +21,10 @@ class Restaurant (models.Model):
     miles = models.ForeignKey(Miles, null = True, blank = True, on_delete=models.CASCADE, related_name="miles")
     
     def __str__(self):
-        return self.name
+        return self.restaurant
 
     class Meta:
-        ordering = ['name']
+        ordering = ['restaurant']
 
 
 class Default(models.Model):

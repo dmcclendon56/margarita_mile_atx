@@ -34,9 +34,19 @@ p {
     font-size: 12px;
 }
 
+
 img {
-    width: 100%;
+    width: 70%;
     height: 500px;
     object-fit: cover;
     object-position: top;
-  }
+}
+
+
+.logo {
+    width: 75%;
+    height: 50px;
+    object-fit: cover;
+    object-position: top;
+    object-position: center;
+}  

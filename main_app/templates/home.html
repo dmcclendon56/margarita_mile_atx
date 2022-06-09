@@ -1,6 +1,6 @@
 
 {% extends 'base.html' %} {% block content %}
-{% block title %}The Margarita Mile{% endblock  %}
+{% block title %}{% endblock  %}
 
 
 <h1 class="title pt-5">{{header}}</h1>
@@ -26,20 +26,20 @@
         </div>
       </div>
     </a>
-      {% <div class="gallery">
-        {% for default in default_miles %}
+    <div class="gallery"></div>
+      {% for default in default_miles %}
         <a href="{% url 'mile_detail' mile.pk %}">
           <div class="card">
             <div class="card-image">
               <figure class="image is-square">
-                <img src="{{mile.img}}" alt="{{mile.name}}" />
+                <img src="{{mile.img}}" alt="{{mile.title}}" />
               </figure>
             </div>
             <div class="card-header">
               <p class="card-header-title">{{mile.name}}</p>
             </div>
           </div>
-        </a> %}
+        </a>
     <article class="message">
       <div class="message-header">
         <p>No Miles available</p>
@@ -47,5 +47,6 @@
     </article>
     {% endfor %}
   </div>
-  {% endblock %}
+  {% endfor %}
 
+  {% endblock  %}

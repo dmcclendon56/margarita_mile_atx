@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
+from django.shortcuts import redirect
 
 from django.views.generic import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -15,10 +16,6 @@ from django.urls import reverse
 class Home(View):
     def get(self, request):
         return HttpResponse("Margartia Mile Home")
-
-    
-
-
 
 class About(View):
     def get(self, request):
@@ -74,19 +71,6 @@ class MileUpdate(UpdateView):
         return reverse('restaurant_detail', kwargs={'pk': self.object.pk})    
 
 
-# class RestuarantList(TemplateView):
-#     template_name = "mile_list.html"
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context["miles"] = Miles.objects.all() 
-#         return context
-class RestaurantCreate(CreateView):
-    model = Restaurant
-    fields = ['restaurant', 'img', 'margarita', 'price', 'miles' ]
-    template_name = "restaurabt_create.html"
-    success_url = "/restaurantlist/" 
-
 class NorthMile(DetailView):
     def get(self, request):
         return HttpResponse("Margarita Mile-North")
@@ -101,5 +85,29 @@ class SouthMile(DetailView):
         return HttpResponse("Margarita Mile-South")        
 
 
+class RestuarantList(TemplateView):
+    template_name = "restaurant_list.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["miles"] = Miles.objects.all() 
+        return context
+
+# class RestaurantCreate(CreateView):
+#     model = Restaurant
+#     fields = ['restaurant', 'img', 'margarita', 'price', 'miles' ]
+#     template_name = "restaurant_create.html"
+#     success_url = "/restaurantlist/" 
+
+class RestaurantCreate(View):
+
+    def post(self, request, pk):
+        restaurant = request.POST.get("restaurant")
+        img = request.POST.get("img")
+        margarita = request.POST.get("margarita")
+        price = request.POST.get("price")
+        mile = Miles.objects.get(pk=pk)
+        Restaurant.objects.create(restaurant=restaurant, img=img, margarita=margarita, price = price, mile=mile)
+        
+        return redirect('mile_detail', pk=pk)    
       
