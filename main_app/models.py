@@ -10,7 +10,7 @@ class Miles(models.Model):
         return self.title  
 
     class Meta:
-        ordering = ['title']
+        ordering = ['pk']
    
 
 class Restaurant (models.Model):

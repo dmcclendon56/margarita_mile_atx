@@ -21,6 +21,10 @@
             <img src="{{mile.img}}" alt="{{mile.name}}" />
           </figure>
         </div>
+        <p> Test {{mile.miles.count}}</p>
+        {% for restaurant in mile.miles.all %}
+        <p>{{restaurant.restaurant}}</p>
+        {% endfor %}
         <div class="card-header">
           <p class="card-header-title">{{mile.name}}</p>
         </div>

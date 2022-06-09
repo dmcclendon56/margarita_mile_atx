@@ -1,23 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1> {{mile.title}}</h1>
-    <img src="{{restaurant.img}}" alt="{{restaurant.restaurant}}" />
-    <a href="/milelist/{{mile.title}}/update">Edit this Mile</a>
-    <a href="/milelist/{{mile.title}}/delete">Delete the Mile</a>
-    <h4>{{restaurant.margarita}}</h4>
+    <h1> {{miles.title}}</h1>
+    <img src="{{miles.img}}" alt="{{miles.title}}" />
+    <a href="/milelist/{{miles.pk}}/update">Edit this Mile</a>
+    <a href="/milelist/{{miles.pk}}/delete">Delete the Mile</a>
+    <!-- <h4>{{restaurant.margarita}}</h4>
     <h4>{{restaurant.restaurant}}</h4>
-    <h4>{{restaurant.price}}</h4>
+    <h4>{{restaurant.price}}</h4> -->
 {% endblock %}
-<a href="{% url 'mile_detail' miles.pk %}" method="post">
+<a href="{% url 'miles_detail' miles.pk %}" method="post">
     {%csrf_token %}
     <div class="card">
       <div class="card-image">
         <figure class="image is-square">
-          <img src="{{mile.img}}" alt="{{mile.title}}" />
+          <img src="{{miles.img}}" alt="{{miles.title}}" />
         </figure>
       </div>
       <div class="card-header">
-        <p class="card-header-title">{{restaurant.restaurant}}</p>
+        <p class="card-header-title">{{miles.title}}</p>
       </div>
     </div>
   </a>

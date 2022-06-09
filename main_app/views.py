@@ -27,10 +27,10 @@ class Home(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["miles"] = Miles.objects.all() 
+        context["miles"] = Miles.objects.all()[0:3] 
+        print(context)
         context['default_miles']= Default.objects.all()
         return context
-
 
 
 class About(TemplateView):
@@ -63,7 +63,7 @@ class MileDelete(DeleteView):
 
 class MileUpdate(UpdateView):
     model = Miles
-    fields = ['name', 'img']
+    fields = ['title', 'img']
     template_name = "mile_update.html"  
     
 
