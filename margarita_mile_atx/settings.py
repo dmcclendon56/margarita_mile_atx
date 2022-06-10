@@ -15,6 +15,11 @@ from pathlib import Path
 
 # At the top of the file
 import os
+# Other settings above
+
+# Configure Django App for Heroku.
+
+
 
 # At bottom of file
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -133,3 +138,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import django_heroku
+django_heroku.settings(locals())
