@@ -14,6 +14,7 @@ clip-path: polygon(5% 5%, 100% 10%, 900% 75%, 75% 75%, 75% 100%, 60% 75%, 20% 80
 * Bootstrap
 * CSS/HTML
 * Bulma
+* PostgreSQL
 
 ## Executing program
 * Set-up a Django directory
