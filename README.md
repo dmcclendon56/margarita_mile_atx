@@ -3,19 +3,28 @@
 
 ## Overview
 ###### 
-My sister's and I are very big foodies and love to explore and go on new adventures every weekend. Once my sister experianced the "Dallas Margarita Mile" we realized that Austin did not have the same resources available. So, The Austin Margarita Mile was made! My sister found as many local restaurants within a 3-5 mile radius and we tired the "best" margaritas they had to offer.   
+My sister's and I are very big foodies and love to explore and go on new adventures every weekend. After my sister experianced the "Dallas Margarita Mile" we realized that Austin did not have the same resources available. So, The Austin Margarita Mile was made! My sister found as many local restaurants within a 3-5 mile radius and we tired the "best" margaritas they had to offer.   
 This Margarita "Mile" is an app where users can share their own personalized 'Margarita Mile'. The application includes restuarant, pictures, and recommend Margarita's. 
 
+## Built With
+* Django
+* Python
+* Bootstrap
+* CSS/HTML
+* Bulma
 
+## Executing program
+* Set-up a Django directory
+* Fork & Clone
+```
+npm i
+```
+## Stretch Features
 
-
-
-
-
-
-
-
-
+* Add users (21+)
+* Create a more cohesive UI experiance
+* Add Google Maps API
+* Curate a few more 'Miles'
 
 
 ## "Show Page"
